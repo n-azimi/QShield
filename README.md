@@ -1,4 +1,4 @@
-# QShield: Securing Neural Networks Against Adversarial Attacks with Quantum Circuits
+# QShield: Securing Neural Networks Against Adversarial Attacks Using Quantum Circuits
 
 
 
@@ -312,13 +312,7 @@ loss_fn = nn.NLLLoss()
 If you used QShield, please cite the following paper: 
 
 ```
-@INPROCEEDINGS{xxx,
-   author = "Navid Azimi, Aditya Prakash, Li Xiong, and Yao Wang",
-   title = "QShield: Securing Neural Networks Against Adversarial Attacks with Quantum Circuits",
-   booktitle = "xxx",
-   year = 2025,
-   pages = "xxx--xxx",
-}
+@INPROCEEDINGS{}
 ```
 
 
