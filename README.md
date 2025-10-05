@@ -272,11 +272,13 @@ loss_fn = nn.NLLLoss()
 │   └── MNIST/
 │   └── OrganAMNIST/
 ├── 📚 docs/                                                     # Documentation
+│   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
-├── ➕ etc/                                                      # Additional Integrated Jupyter Notebook
+├── ➕ etc/                                                      # Integrated Jupyter Notebooks
 │   └── Jupyter Notebook - Adversarial Attacks.ipynb
 │   └── Jupyter Notebook - Model Training & Evaluation.ipynb
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
+├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
 ├── ⚛️ qnn_toolkit.py                                            # Quanvolutional Neural Network Toolkit
 ├── 📦 requirements.txt                                          # Project Dependencies
 └── 📖 README.md                                                 # Primary Documentation
