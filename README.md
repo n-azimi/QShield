@@ -1,4 +1,4 @@
-# QShield: Securing Neural Networks Against Adversarial Attacks with Quantum Circuits
+# QShield: Securing Neural Networks Against Adversarial Attacks Using Quantum Circuits
 
 
 
