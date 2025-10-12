@@ -264,14 +264,14 @@ loss_fn = nn.NLLLoss()
 
 ```
 📁 QShield/
-├── 📝 clean_models/                                             # Models
+├── 🧠 clean_models/                                             # Models
 │   └── clean_model-<dataset>-<model_type>.pt
 │   └── ...
 ├── 🛢️ data/                                                     # Datasets
 │   └── CIFAR10/
 │   └── MNIST/
 │   └── OrganAMNIST/
-├── 📚 docs/                                                     # Documentation
+├── 📚 docs/                                                     # Documentations
 │   └── Adversarial Attack Parameters.md
 │   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
@@ -303,7 +303,7 @@ loss_fn = nn.NLLLoss()
 | `🖥 psutil` | System and resource monitoring (CPU/GPU/memory usage) |
 | `🛡️ torchattacks` | PyTorch-based adversarial attack implementations |
 | `🛡️ adversarial-robustness-toolbox` | Advanced adversarial attacks and defenses (ART) |
-| `🔗 pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
+| `⚛️ pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
 | `📋 tabulate` | Pretty-print tabular results (ODR, ASR, etc.) |
 | `⚙️ pip / setuptools / wheel` | Python packaging and dependency management |
 
