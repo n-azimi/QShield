@@ -3,7 +3,7 @@
 
 
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
-[![Python Version](https://img.shields.io/badge/Python-3.9--3.12-blue.svg)](#)
+[![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](#)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?logo=jupyter&logoColor=white)](#)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20MacOS%20%7C%20Windows-lightgrey.svg)](#)
@@ -264,14 +264,15 @@ loss_fn = nn.NLLLoss()
 
 ```
 📁 QShield/
-├── 📝 clean_models/                                             # Models
+├── 🧠 clean_models/                                             # Models
 │   └── clean_model-<dataset>-<model_type>.pt
 │   └── ...
 ├── 🛢️ data/                                                     # Datasets
 │   └── CIFAR10/
 │   └── MNIST/
 │   └── OrganAMNIST/
-├── 📚 docs/                                                     # Documentation
+├── 📚 docs/                                                     # Documentations
+│   └── Adversarial Attack Parameters.md
 │   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
@@ -302,17 +303,24 @@ loss_fn = nn.NLLLoss()
 | `🖥 psutil` | System and resource monitoring (CPU/GPU/memory usage) |
 | `🛡️ torchattacks` | PyTorch-based adversarial attack implementations |
 | `🛡️ adversarial-robustness-toolbox` | Advanced adversarial attacks and defenses (ART) |
-| `🔗 pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
+| `⚛️ pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
 | `📋 tabulate` | Pretty-print tabular results (ODR, ASR, etc.) |
 | `⚙️ pip / setuptools / wheel` | Python packaging and dependency management |
 
 
 
 ## 📑 Citation
-If you used QShield, please cite the following paper: 
+If this repository’s code, data, or results contribute to your research, please acknowledge our work by citing the following paper:
 
 ```
-@INPROCEEDINGS{}
+@INPROCEEDINGS{CitationKey,
+  author    = {},
+  title     = {},
+  booktitle = {},
+  year      = {},
+  pages     = {},
+  doi       = {}
+}
 ```
 
 
