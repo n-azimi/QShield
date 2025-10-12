@@ -310,10 +310,17 @@ loss_fn = nn.NLLLoss()
 
 
 ## 📑 Citation
-If you used QShield, please cite the following paper: 
+If this repository’s code, data, or results contribute to your research, please acknowledge our work by citing the following paper:
 
 ```
-@INPROCEEDINGS{}
+@INPROCEEDINGS{CitationKey,
+  author    = {},
+  title     = {},
+  booktitle = {},
+  year      = {},
+  pages     = {},
+  doi       = {}
+}
 ```
 
 
