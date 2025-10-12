@@ -272,6 +272,7 @@ loss_fn = nn.NLLLoss()
 │   └── MNIST/
 │   └── OrganAMNIST/
 ├── 📚 docs/                                                     # Documentation
+│   └── Adversarial Attack Parameters.md
 │   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
