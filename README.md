@@ -5,9 +5,9 @@
 [![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](#)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?logo=jupyter&logoColor=white)](#)
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20MacOS%20%7C%20Windows-lightgrey.svg)](#)
 [![No Maintenance Intended](https://img.shields.io/badge/Status-Maintained-green.svg)](#)
+[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
 
 
 
@@ -272,19 +272,20 @@ loss_fn = nn.NLLLoss()
 │   └── Adversarial Attack Parameters.md
 │   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
+├── ➕ etc/                                                      # Integrated Jupyter Notebooks
+│   └── Jupyter Notebook - Adversarial Attacks.ipynb
+│   └── Jupyter Notebook - Model Training & Evaluation.ipynb
 ├── 🖼️ img/                                                      # Figures and architecture diagrams
 │   └── _DNN.png
 │   └── _CNN.png
 │   └── _QShield.png
-├── ➕ etc/                                                      # Integrated Jupyter Notebooks
-│   └── Jupyter Notebook - Adversarial Attacks.ipynb
-│   └── Jupyter Notebook - Model Training & Evaluation.ipynb
+│   └── ...
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
 ├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
 ├── ⚛️ qnn_toolkit.py                                            # Quanvolutional Neural Network Toolkit
-├── 📦 requirements.txt                                          # Project Dependencies
-└── 📖 README.md                                                 # Primary Documentation
+├── 📖 README.md                                                 # Primary Documentation
+└── 📦 requirements.txt                                          # Project Dependencies
 ```
 
 
