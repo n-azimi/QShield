@@ -16,7 +16,7 @@
 1. [📋 Overview](#-overview)
 2. [💡 Key Features](#-key-features)
 3. [🏗️ Architecture & Components](#%EF%B8%8F-architecture--components)
-4. [⚛️ Parameterized Quantum Circuits and Entanglement Patterns](#%EF%B8%8F-parameterized-quantum-circuits-and-entanglement-patterns)
+4. [⚛️ Parameterized Quantum Circuits](#%EF%B8%8F-parameterized-quantum-circuits)
 5. [🛢️ Datasets](#%EF%B8%8F-datasets)
 6. [🧠 Models](#-models)
 7. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
@@ -75,7 +75,7 @@ Our results demonstrate that classical models are highly vulnerable to adversari
 
 
 
-## ⚛️ Parameterized Quantum Circuits and Entanglement Patterns
+## ⚛️ Parameterized Quantum Circuits
 
 <p align="center">
   <img src="/img/No-Ent.png" alt="No entanglement quantum circuit" width="500">
