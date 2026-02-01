@@ -56,7 +56,7 @@ Our results demonstrate that classical models are highly vulnerable to adversari
   Figure 1. Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets
 </p>
 
-<div style="margin-bottom: 80px;"></div>
+<br>
 
 <p align="center">
   <img src="/img/_CNN.png" alt="CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
@@ -64,7 +64,7 @@ Our results demonstrate that classical models are highly vulnerable to adversari
   Figure 2. CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets
 </p>
 
-<div style="margin-bottom: 80px;"></div>
+<br>
 
 <p align="center">
   <img src="/img/_QShield.png" alt="Schematic overview of the proposed QShield architecture" width="500">
@@ -236,10 +236,15 @@ loss_fn = nn.NLLLoss()
 │   └── Adversarial Attack Parameters.md
 │   └── Dataset Visualization.ipynb
 │   └── Results.ipynb
+├── 🖼️ img/                                                      # Figures and architecture diagrams
+│   └── _DNN.png
+│   └── _CNN.png
+│   └── _QShield.png
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
 │   └── Jupyter Notebook - Adversarial Attacks.ipynb
 │   └── Jupyter Notebook - Model Training & Evaluation.ipynb
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
+├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
 ├── ⚛️ qnn_toolkit.py                                            # Quanvolutional Neural Network Toolkit
 ├── 📦 requirements.txt                                          # Project Dependencies
