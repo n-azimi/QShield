@@ -56,11 +56,15 @@ Our results demonstrate that classical models are highly vulnerable to adversari
   Figure 1. Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets
 </p>
 
+<div style="margin-bottom: 40px;"></div>
+
 <p align="center">
   <img src="/img/_CNN.png" alt="CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
   <br>
   Figure 2. CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets
 </p>
+
+<div style="margin-bottom: 40px;"></div>
 
 <p align="center">
   <img src="/img/_QShield.png" alt="Schematic overview of the proposed QShield architecture" width="500">
