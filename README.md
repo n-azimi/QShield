@@ -50,11 +50,24 @@ Our results demonstrate that classical models are highly vulnerable to adversari
 
 ## 🏗️ Architecture & Components
 
-![DNN for MNIST (10 classes) and OrganAMNIST (11 classes)](/img/_DNN1.png "DNN for MNIST (10 classes) and OrganAMNIST (11 classes)")
-![Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets](/img/_DNN2.png "Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets")
-![CNN for MNIST (10 Classes) and OrganAMNIST (11 Classes)](/img/_CNN1.png "CNN for MNIST (10 Classes) and OrganAMNIST (11 Classes)")
-![CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets](/img/_CNN2.png "CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets")
-![Schematic overview of the proposed QShield architecture](/img/_QShield.png "Schematic overview of the proposed QShield architecture")
+<p align="center">
+  <img src="/img/_DNN.png" alt="Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
+  <br>
+  Figure 1. Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets
+</p>
+
+<p align="center">
+  <img src="/img/_CNN.png" alt="CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
+  <br>
+  Figure 2. CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets
+</p>
+
+<p align="center">
+  <img src="/img/_QShield.png" alt="Schematic overview of the proposed QShield architecture" width="500">
+  <br>
+  Figure 3. Schematic overview of the proposed QShield architecture
+</p>
+
 
 ## 🛢️ Datasets
 
