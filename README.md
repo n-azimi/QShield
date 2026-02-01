@@ -1,13 +1,13 @@
 # QShield: Securing Neural Networks Against Adversarial Attacks Using Quantum Circuits
 
 
-
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
 [![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](#)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?logo=jupyter&logoColor=white)](#)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20MacOS%20%7C%20Windows-lightgrey.svg)](#)
 [![No Maintenance Intended](https://img.shields.io/badge/Status-Maintained-green.svg)](#)
+[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
 
 
 
@@ -16,99 +16,96 @@
 1. [📋 Overview](#-overview)
 2. [💡 Key Features](#-key-features)
 3. [🏗️ Architecture & Components](#%EF%B8%8F-architecture--components)
-4. [🛢️ Datasets](#%EF%B8%8F-datasets)
-5. [🧠 Models](#-models)
-6. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
-7. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
-8. [📦 Libraries & Dependencies](#-libraries--dependencies)
-9. [📑 Citation](#-citation)
-10. [📜 License](#-license)
+4. [⚛️ Parameterized Quantum Circuits](#%EF%B8%8F-parameterized-quantum-circuits)
+5. [🛢️ Datasets](#%EF%B8%8F-datasets)
+6. [🧠 Models](#-models)
+7. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
+8. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
+9. [📦 Libraries & Dependencies](#-libraries--dependencies)
+10. [📑 Citation](#-citation)
+11. [📜 License](#-license)
 
 
 
 ## 📋 Overview
 
-In this work, we present QShield, a quanvolutional neural network architecture designed to enhance the adversarial robustness of classical neural networks. QShield combines a convolutional neural network (CNN) backbone for feature extraction with a quantum module that encodes features into quantum states, applies entanglement patterns under realistic noise conditions, and outputs a hybrid prediction via a dynamic fusion coefficient. We evaluate classical and our quanvolutional neural network on MNIST, OrganAMNIST, and CIFAR-10 using several robustness, efficiency, and computational metrics.
+In this work, we introduce QShield, a modular hybrid quantum–classical neural network (HQCNN) architecture designed to enhance the adversarial robustness of classical deep learning models. QShield integrates a conventional convolutional neural network (CNN) backbone for feature extraction with a quantum processing module that encodes the extracted features into quantum states, applies structured entanglement operations under realistic noise models, and outputs a hybrid prediction through a dynamically weighted fusion mechanism implemented via a lightweight multilayer perceptron (MLP). We systematically evaluate both classical and hybrid quantum–classical models on the MNIST, OrganAMNIST, and CIFAR-10 datasets, using a comprehensive set of robustness, efficiency, and computational performance metrics.
 
-Our results reveal that classical models are highly vulnerable to adversarial attacks, whereas our quanvolutional neural network with entanglement patterns maintains high accuracy and substantially reduces attack success rates for various adversarial attack methods. Across all of the datasets, our quanvolutional neural network consistently outperformed CNN baseline, with robustness improvements ranging from modest improvements on gradient-based attacks to more than an order of magnitude on optimization- and query-based attacks. Moreover, QShieled significantly increased the computational cost of generating adversarial examples, introducing an additional layer of defense.
-
-These findings indicate that our architecture achieves a practical balance between accuracy, robustness, and adversarial attack inefficiency, positioning it as a promising solution for secure and reliable machine learning in sensitive and safety-critical applications.
+Our results demonstrate that classical models are highly vulnerable to adversarial attacks, whereas the proposed hybrid models with entanglement patterns maintain high predictive accuracy while substantially reducing attack success rates across a wide range of adversarial attacks. Across all evaluated datasets, the hybrid models consistently outperformed CNN baselines, achieving robustness gains ranging from modest improvements against gradient-based attacks to over an order-of-magnitude reduction in attack success rates for optimization- and query-based attacks. Furthermore, the proposed hybrid architecture significantly increased the computational cost required to generate adversarial examples, thereby introducing an additional layer of defense. These findings indicate that the proposed modular hybrid architecture achieves a practical balance between predictive accuracy and adversarial robustness, positioning it as a promising approach for secure and reliable machine learning in sensitive and safety-critical applications.
 
 
 
 ## 💡 Key Features
 
-* **Device-Aware Training**: Automatic CUDA/CPU detection and device placement.
-* **Jupyter Notebook Integration**: Ready-to-run training/evaluation pipelines with logging, dataset selection, and attack configuration.
-* **Configurable Settings**: Easy parameterization of entanglement depth, encoding strategy, noise strength, number of classes, and optimizer/loss.
-* **QShield Architecture**: Novel hybrid quantum–classical pipeline combining CNN feature extraction with parameterized quantum circuits.
-* **Robustness Evaluation**: Benchmarked under diverse adversarial attacks (FGSM, PGD, DeepFool, C&W, Square, etc.) across datasets (MNIST, CIFAR10, OrganAMNIST).
-* **Entangled Quanvolutional Layers**: Support for multiple entanglement patterns: none, linear, star, fully-connected.
-* **Adaptive Hybrid Fusion**: Dynamic fusion mechanism (MLP-based) that adaptively balances quantum and classical predictions per input.
-* **Noise Modeling**: Built-in simulation of quantum noise (depolarizing, amplitude damping, phase damping, mixed) and optional input noise injection.
-* **Flexible Encoding Methods**: Supports both basic angle encoding and enhanced angle encoding (multi-gate RX/RY/RZ with PCA/orthogonal expansion for dimensionality handling).
+* **QShield Architecture**: A modular hybrid quantum–classical pipeline that combines CNN-based feature extraction with parameterized quantum circuits for robust prediction.
+* **Device-Aware Training**: Automatic detection of available hardware with seamless CUDA/CPU device placement for efficient training and evaluation.
+* **Jupyter Notebook Integration**: Ready-to-run training and evaluation pipelines with integrated logging, dataset selection, and adversarial attack configuration.
+* **Configurable Settings**: Flexible parameterization of entanglement depth, encoding strategy, noise strength, number of output classes, and optimizer/loss functions.
+* **Noise Modeling**: Built-in simulation of realistic quantum noise processes (depolarizing, amplitude damping, phase damping, and mixed noise), with optional input noise injection.
+* **Various Qubit Entanglement Patterns**: Support for multiple qubit entanglement patterns, including none, linear, star, and fully connected configurations.
+* **Adaptive Hybrid Fusion**: An MLP-based dynamic fusion mechanism that adaptively balances quantum and classical predictions on a per-input basis.
+* **Flexible Encoding Methods**: Support for both standard angle encoding and enhanced multi-gate RX/RY/RZ encoding, with PCA or orthogonal expansion for dimensionality alignment.
+* **Robustness Evaluation**: Systematic benchmarking under diverse adversarial attacks (FGSM, PGD, DeepFool, C&W, Square, etc.) across MNIST, CIFAR-10, and OrganAMNIST datasets.
 
 
 
 ## 🏗️ Architecture & Components
 
-```mermaid
-flowchart LR
- subgraph subGraph0["Classical Processing"]
-        cnn["CNN Model"]
-        feat_extract["Feature Extraction"]
-  end
- subgraph subGraph1["Quantum Processing"]
-        encoder["Classical-to-Quantum Feature Encoder"]
-        q_circuit["Quantum Circuit"]
-  end
- subgraph subGraph2["Hybrid Processing"]
-        dyn_weight["Dynamic Weighting"]
-        fusion["Hybrid Fusion"]
-  end
-    input["Input Data"] --> cnn
-    cnn --> feat_extract
-    feat_extract -- Extracted Features --> encoder
-    encoder -- Quantum Rotation Angles --> q_circuit
-    cnn -- Classical Probabilities --> dyn_weight
-    cnn -- Classical Logits --> fusion
-    noise["Noise Parameters"] --> q_circuit
-    ent_type["Entanglement Type"] --> q_circuit
-    q_circuit -- Quantum Probabilities --> dyn_weight & fusion
-    dyn_weight -- Dynamic Fusion Coefficient (α) --> fusion
-    fusion --> output["Final Prediction"]
+<p align="center">
+  <img src="/img/_DNN.png" alt="Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
+  <br>
+  Figure 1. Fully connected DNN architectures for MNIST, OrganAMNIST, and CIFAR-10 datasets
+</p>
 
-    input@{ shape: rounded}
-    noise@{ shape: rounded}
-    ent_type@{ shape: rounded}
-    output@{ shape: rounded}
-     cnn:::classical
-     feat_extract:::classical
-     encoder:::quantum
-     q_circuit:::quantum
-     dyn_weight:::hybrid
-     fusion:::hybrid
-     input:::input
-     output:::output
-    classDef input fill:#bbf,stroke:#333,stroke-width:1px
-    classDef output fill:#bbf,stroke:#333,stroke-width:1px
-    classDef classical fill:#bfb,stroke:#333,stroke-width:1px
-    classDef quantum fill:#fbf,stroke:#333,stroke-width:1px
-    classDef hybrid fill:#fbb,stroke:#333,stroke-width:1px
-    style cnn stroke:#000000
-    style feat_extract stroke:#000000
-    style encoder stroke:#000000
-    style q_circuit stroke:#757575
-    style dyn_weight stroke:#000000
-    style fusion stroke:#000000
-    style input stroke:#000000
-    style noise fill:#E1BEE7,stroke:#000000
-    style ent_type fill:#E1BEE7,stroke:#000000
-    style output stroke:#000000
-    style subGraph0 fill:#FFF9C4,stroke:#757575
-    style subGraph1 fill:#FFF9C4,stroke:#757575
-    style subGraph2 fill:#FFF9C4,stroke:#757575
-```
+<br>
+
+<p align="center">
+  <img src="/img/_CNN.png" alt="CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets" width="500">
+  <br>
+  Figure 2. CNN architectures based on the ResNet-18 backbone for MNIST, OrganAMNIST, and CIFAR-10 datasets
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/_QShield.png" alt="Schematic overview of the proposed QShield architecture" width="500">
+  <br>
+  Figure 3. Schematic overview of the proposed QShield architecture
+</p>
+
+
+
+## ⚛️ Parameterized Quantum Circuits
+
+<p align="center">
+  <img src="/img/No-Ent.png" alt="No entanglement quantum circuit" width="500">
+  <br>
+  Figure 4. No entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Linear-Ent.png" alt="Linear entanglement quantum circuit" width="500">
+  <br>
+  Figure 5. Linear entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Star-Ent.png" alt="Star entanglement quantum circuit" width="500">
+  <br>
+  Figure 6. Star entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Full-Ent.png" alt="Full entanglement quantum circuit" width="500">
+  <br>
+  Figure 7. Full entanglement quantum circuit
+</p>
 
 
 
@@ -278,11 +275,17 @@ loss_fn = nn.NLLLoss()
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
 │   └── Jupyter Notebook - Adversarial Attacks.ipynb
 │   └── Jupyter Notebook - Model Training & Evaluation.ipynb
+├── 🖼️ img/                                                      # Figures and architecture diagrams
+│   └── _DNN.png
+│   └── _CNN.png
+│   └── _QShield.png
+│   └── ...
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
+├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
 ├── ⚛️ qnn_toolkit.py                                            # Quanvolutional Neural Network Toolkit
-├── 📦 requirements.txt                                          # Project Dependencies
-└── 📖 README.md                                                 # Primary Documentation
+├── 📖 README.md                                                 # Primary Documentation
+└── 📦 requirements.txt                                          # Project Dependencies
 ```
 
 
@@ -310,6 +313,9 @@ loss_fn = nn.NLLLoss()
 
 
 ## 📑 Citation
+
+The paper associated with this work is available at **[this link](https://arxiv.org/abs/XXXX.XXXXX)**.
+
 If this repository’s code, data, or results contribute to your research, please acknowledge our work by citing the following paper:
 
 ```
