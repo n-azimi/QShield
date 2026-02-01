@@ -16,13 +16,14 @@
 1. [📋 Overview](#-overview)
 2. [💡 Key Features](#-key-features)
 3. [🏗️ Architecture & Components](#%EF%B8%8F-architecture--components)
-4. [🛢️ Datasets](#%EF%B8%8F-datasets)
-5. [🧠 Models](#-models)
-6. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
-7. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
-8. [📦 Libraries & Dependencies](#-libraries--dependencies)
-9. [📑 Citation](#-citation)
-10. [📜 License](#-license)
+4. [⚛️ Parameterized Quantum Circuits and Entanglement Patterns](#%EF%B8%8F-parameterized-quantum-circuits-and-entanglement-patterns)
+5. [🛢️ Datasets](#%EF%B8%8F-datasets)
+6. [🧠 Models](#-models)
+7. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
+8. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
+9. [📦 Libraries & Dependencies](#-libraries--dependencies)
+10. [📑 Citation](#-citation)
+11. [📜 License](#-license)
 
 
 
@@ -71,6 +72,41 @@ Our results demonstrate that classical models are highly vulnerable to adversari
   <br>
   Figure 3. Schematic overview of the proposed QShield architecture
 </p>
+
+
+
+## ⚛️ Parameterized Quantum Circuits and Entanglement Patterns
+
+<p align="center">
+  <img src="/img/No-Ent.png" alt="No entanglement quantum circuit" width="500">
+  <br>
+  Figure 4. No entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Linear-Ent.png" alt="Linear entanglement quantum circuit" width="500">
+  <br>
+  Figure 5. Linear entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Star-Ent.png" alt="Star entanglement quantum circuit" width="500">
+  <br>
+  Figure 6. Star entanglement quantum circuit
+</p>
+
+<br>
+
+<p align="center">
+  <img src="/img/Full-Ent.png" alt="Full entanglement quantum circuit" width="500">
+  <br>
+  Figure 7. Full entanglement quantum circuit
+</p>
+
 
 
 ## 🛢️ Datasets
