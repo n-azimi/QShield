@@ -161,8 +161,11 @@ pip install -r requirements.txt
 ```
 
 ```
-# Run this script to download all datasets
+# Download datasets
 python datasets.py
+
+# (OR) Download datasets + pretrained models from Hugging Face
+python hf.py
 ```
 
 
@@ -348,6 +351,7 @@ models_dict = {
 │   └── index.html
 ├── 🌐 app.py                                                    # Flask web app for image classification using preloaded models
 ├── 🗃️ datasets.py                                               # Download datasets into local ./data folders
+├── ⬇️ hf.py                                                     # Downloads datasets and trained models from Hugging Face
 ├── 🌄 images.py                                                 # Save sample images from datasets into class-specific folders
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
 ├── 📄 LICENSE                                                   # License
