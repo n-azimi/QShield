@@ -20,10 +20,11 @@
 5. [🛢️ Datasets](#%EF%B8%8F-datasets)
 6. [🧠 Models](#-models)
 7. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
-8. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
-9. [📦 Libraries & Dependencies](#-libraries--dependencies)
-10. [📑 Citation](#-citation)
-11. [📜 License](#-license)
+8. [🌐 Flask Web Application](#-flask-web-application)
+9. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
+10. [📦 Libraries & Dependencies](#-libraries--dependencies)
+11. [📑 Citation](#-citation)
+12. [📜 License](#-license)
 
 
 
@@ -154,9 +155,17 @@ qshield\Scripts\activate
 # If using Conda:
 conda activate qshield
 ```
-```
+```bash
 # Install dependencies
 pip install -r requirements.txt
+```
+
+```bash
+# Download datasets
+python datasets.py
+
+# (OR) Download datasets + pretrained models from Hugging Face
+python hf.py
 ```
 
 
@@ -171,6 +180,7 @@ This section lists the key options and parameters you can configure before train
 global device
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 ```
+
 
 ##### Model & Dataset Settings
 
@@ -257,9 +267,67 @@ loss_fn = nn.NLLLoss()
 
 
 
+## 🌐 Flask Web Application
+
+```bash
+# Download all datasets
+python datasets.py
+
+# Start the Flask web application
+python app.py
+
+# (Optional) Generate more sample images
+# Change N_PER_CLASS in images.py, then run:
+python images.py
+```
+
+
+<p align="center">
+  <img src="/img/app/1.png" width="200" style="margin: 10px;">
+  <img src="/img/app/2.png" width="200" style="margin: 10px;">
+  <img src="/img/app/3.png" width="200" style="margin: 10px;">
+  <img src="/img/app/4.png" width="200" style="margin: 10px;">
+</p>
+
+<p align="center">
+  <img src="/img/app/5.png" width="200" style="margin: 10px;">
+  <img src="/img/app/6.png" width="200" style="margin: 10px;">
+  <img src="/img/app/7.png" width="200" style="margin: 10px;">
+  <img src="/img/app/8.png" width="200" style="margin: 10px;">
+</p>
+
+
+You can select different pretrained HQCNN models by editing the .pt file paths in the LOAD ALL MODELS section of the app.py:
+
+```python
+# ==========================================================================================
+# LOAD ALL MODELS
+# ==========================================================================================
+
+models_dict = {
+    'mnist': {
+        'cnn': load_model('clean_models/clean_model-MNIST-cnn_model.pt', CNN_Grayscale, num_classes=10),
+        'dnn': load_model('clean_models/clean_model-MNIST-dnn_model.pt', DNN_Grayscale, num_classes=10),
+        'qnn': load_qnn_model('clean_models/clean_model-MNIST-qnn_model-full_entanglement_ansatz.pt')
+    },
+    'organmnist': {
+        'cnn': load_model('clean_models/clean_model-OrganAMNIST-cnn_model.pt', CNN_Grayscale, num_classes=11),
+        'dnn': load_model('clean_models/clean_model-OrganAMNIST-dnn_model.pt', DNN_Grayscale, num_classes=11),
+        'qnn': load_qnn_model('clean_models/clean_model-OrganAMNIST-qnn_model-full_entanglement_ansatz.pt')
+    },
+    'cifar10': {
+        'cnn': load_model('clean_models/clean_model-CIFAR10-cnn_model.pt', CNN_CIFAR10, num_classes=10),
+        'dnn': load_model('clean_models/clean_model-CIFAR10-dnn_model.pt', DNN_CIFAR10, num_classes=10),
+        'qnn': load_qnn_model('clean_models/clean_model-CIFAR10-qnn_model-full_entanglement_ansatz.pt')
+    }
+}
+```
+
+
+
 ## 🗂️ Code Structure
 
-```
+```bash
 📁 QShield/
 ├── 🧠 clean_models/                                             # Models
 │   └── clean_model-<dataset>-<model_type>.pt
@@ -275,11 +343,17 @@ loss_fn = nn.NLLLoss()
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
 │   └── Jupyter Notebook - Adversarial Attacks.ipynb
 │   └── Jupyter Notebook - Model Training & Evaluation.ipynb
-├── 🖼️ img/                                                      # Figures and architecture diagrams
+├── 🖼️ img/                                                      # Figures, diagrams, and images
 │   └── _DNN.png
 │   └── _CNN.png
 │   └── _QShield.png
 │   └── ...
+├── 📃 templates/                                                # HTML structure for QShield webapp
+│   └── index.html
+├── 🌐 app.py                                                    # Flask web app for image classification using preloaded models
+├── 🗃️ datasets.py                                               # Download datasets into local ./data folders
+├── ⬇️ hf.py                                                     # Downloads datasets and trained models from Hugging Face
+├── 🌄 images.py                                                 # Save sample images from datasets into class-specific folders
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
 ├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
@@ -309,6 +383,8 @@ loss_fn = nn.NLLLoss()
 | `⚛️ pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
 | `📋 tabulate` | Pretty-print tabular results (ODR, ASR, etc.) |
 | `⚙️ pip / setuptools / wheel` | Python packaging and dependency management |
+| `🌐 Flask` | Lightweight web framework for building APIs and web apps |
+| `🤗 huggingface_hub` | Download and manage models and datasets from Hugging Face |
 
 
 
@@ -316,7 +392,7 @@ loss_fn = nn.NLLLoss()
 
 The paper associated with this work is available at **[this link](https://arxiv.org/abs/XXXX.XXXXX)**.
 
-If this repository’s code, data, or results contribute to your research, please acknowledge our work by citing the following paper:
+If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
 ```
 @INPROCEEDINGS{CitationKey,
@@ -334,9 +410,4 @@ If this repository’s code, data, or results contribute to your research, pleas
 ## 📜 License
 
 This software is licensed under the GNU General Public License v3.0 (GPLv3). You are free to use, modify, and distribute this software for both personal and commercial purposes, as long as you comply with the terms of the GPLv3 license. This includes preserving the license notice and making the source code of any derivative works available under the same license.
-
-
-
-
-
 
