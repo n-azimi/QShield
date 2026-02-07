@@ -280,17 +280,17 @@ python images.py
 
 
 <p align="center">
-  <img src="/img/app/1.png" width="220" style="margin: 10px;">
-  <img src="/img/app/2.png" width="220" style="margin: 10px;">
-  <img src="/img/app/3.png" width="220" style="margin: 10px;">
-  <img src="/img/app/4.png" width="220" style="margin: 10px;">
+  <img src="/img/app/1.png" width="200" style="margin: 10px;">
+  <img src="/img/app/2.png" width="200" style="margin: 10px;">
+  <img src="/img/app/3.png" width="200" style="margin: 10px;">
+  <img src="/img/app/4.png" width="200" style="margin: 10px;">
 </p>
 
 <p align="center">
-  <img src="/img/app/5.png" width="220" style="margin: 10px;">
-  <img src="/img/app/6.png" width="220" style="margin: 10px;">
-  <img src="/img/app/7.png" width="220" style="margin: 10px;">
-  <img src="/img/app/8.png" width="220" style="margin: 10px;">
+  <img src="/img/app/5.png" width="200" style="margin: 10px;">
+  <img src="/img/app/6.png" width="200" style="margin: 10px;">
+  <img src="/img/app/7.png" width="200" style="margin: 10px;">
+  <img src="/img/app/8.png" width="200" style="margin: 10px;">
 </p>
 
 You can select different pretrained HQCNN models by editing the .pt file paths in the LOAD ALL MODELS section of the app.py:
