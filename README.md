@@ -270,15 +270,24 @@ loss_fn = nn.NLLLoss()
 ## 🌐 Flask Web Application
 
 ```bash
-# Download all datasets
+# Download all required datasets
 python datasets.py
 
-# Start the Flask web application
+# Launch the Flask web application
 python app.py
 
-# (Optional) Generate more sample images
-# Change N_PER_CLASS in images.py, then run:
+# (Optional) Generate additional clean sample images
+#    → Edit N_PER_CLASS in images.py, then run:
 python images.py
+
+# (Optional) Generate adversarial examples
+#    → Open images_adversarial.py and set:
+#       ADVERSARIAL_ATTACK_NAME = 'onepixel_attack'   # Options: fgsm_attack, pgd_attack, apgd_attack, vmifgsm_attack,
+#                                                     #          cw_attack, deepfool_attack, onepixel_attack, square_attack
+#       MODEL_TYPE = 'dnn'                            # Options: cnn, dnn, qnn
+#       N_PER_CLASS = 3                               # Images per class to save
+#    → Then run:
+python images_adversarial.py
 ```
 
 
@@ -354,6 +363,7 @@ models_dict = {
 ├── 🗃️ datasets.py                                               # Download datasets into local ./data folders
 ├── ⬇️ hf.py                                                     # Downloads datasets and trained models from Hugging Face
 ├── 🌄 images.py                                                 # Save sample images from datasets into class-specific folders
+├── 🌄 images_adversarial.py                                     # Generate adversarial examples, saving both original and perturbed images per class
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
 ├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
