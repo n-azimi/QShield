@@ -384,6 +384,7 @@ models_dict = {
 | `📋 tabulate` | Pretty-print tabular results (ODR, ASR, etc.) |
 | `⚙️ pip / setuptools / wheel` | Python packaging and dependency management |
 | `🌐 Flask` | Lightweight web framework for building APIs and web apps |
+| `🤗 huggingface_hub` | Download and manage models and datasets from Hugging Face |
 
 
 
