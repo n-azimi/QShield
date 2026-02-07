@@ -20,10 +20,11 @@
 5. [🛢️ Datasets](#%EF%B8%8F-datasets)
 6. [🧠 Models](#-models)
 7. [⚙️ Installation & Setup](#%EF%B8%8F-installation--setup)
-8. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
-9. [📦 Libraries & Dependencies](#-libraries--dependencies)
-10. [📑 Citation](#-citation)
-11. [📜 License](#-license)
+8. [🌐 Flask Web Application](#-flask-web-application)
+9. [🗂️ Code Structure](#%EF%B8%8F-code-structure)
+10. [📦 Libraries & Dependencies](#-libraries--dependencies)
+11. [📑 Citation](#-citation)
+12. [📜 License](#-license)
 
 
 
@@ -159,6 +160,11 @@ conda activate qshield
 pip install -r requirements.txt
 ```
 
+```
+# Run this script to download all datasets
+python datasets.py
+```
+
 
 #### 2. Parameters Configuration
 
@@ -256,6 +262,64 @@ loss_fn = nn.NLLLoss()
 ```
 
 
+## 🌐 Flask Web Application
+
+```
+# Download all datasets
+python datasets.py
+
+# Start the Flask web application
+python app.py
+
+# (Optional) Generate more sample images
+# Change N_PER_CLASS in images.py, then run:
+python images.py
+```
+
+
+
+
+<p align="center">
+  <img src="/img/app/1.png" width="220" style="margin: 10px;">
+  <img src="/img/app/2.png" width="220" style="margin: 10px;">
+  <img src="/img/app/3.png" width="220" style="margin: 10px;">
+  <img src="/img/app/4.png" width="220" style="margin: 10px;">
+</p>
+
+<p align="center">
+  <img src="/img/app/5.png" width="220" style="margin: 10px;">
+  <img src="/img/app/6.png" width="220" style="margin: 10px;">
+  <img src="/img/app/7.png" width="220" style="margin: 10px;">
+  <img src="/img/app/8.png" width="220" style="margin: 10px;">
+</p>
+
+You can select different pretrained HQCNN models by editing the .pt file paths in the LOAD ALL MODELS section of the app.py:
+
+```
+# ==========================================================================================
+# LOAD ALL MODELS
+# ==========================================================================================
+
+models_dict = {
+    'mnist': {
+        'cnn': load_model('clean_models/clean_model-MNIST-cnn_model.pt', CNN_Grayscale, num_classes=10),
+        'dnn': load_model('clean_models/clean_model-MNIST-dnn_model.pt', DNN_Grayscale, num_classes=10),
+        'qnn': load_qnn_model('clean_models/clean_model-MNIST-qnn_model-full_entanglement_ansatz.pt')
+    },
+    'organmnist': {
+        'cnn': load_model('clean_models/clean_model-OrganAMNIST-cnn_model.pt', CNN_Grayscale, num_classes=11),
+        'dnn': load_model('clean_models/clean_model-OrganAMNIST-dnn_model.pt', DNN_Grayscale, num_classes=11),
+        'qnn': load_qnn_model('clean_models/clean_model-OrganAMNIST-qnn_model-full_entanglement_ansatz.pt')
+    },
+    'cifar10': {
+        'cnn': load_model('clean_models/clean_model-CIFAR10-cnn_model.pt', CNN_CIFAR10, num_classes=10),
+        'dnn': load_model('clean_models/clean_model-CIFAR10-dnn_model.pt', DNN_CIFAR10, num_classes=10),
+        'qnn': load_qnn_model('clean_models/clean_model-CIFAR10-qnn_model-full_entanglement_ansatz.pt')
+    }
+}
+```
+
+
 
 ## 🗂️ Code Structure
 
@@ -275,11 +339,16 @@ loss_fn = nn.NLLLoss()
 ├── ➕ etc/                                                      # Integrated Jupyter Notebooks
 │   └── Jupyter Notebook - Adversarial Attacks.ipynb
 │   └── Jupyter Notebook - Model Training & Evaluation.ipynb
-├── 🖼️ img/                                                      # Figures and architecture diagrams
+├── 🖼️ img/                                                      # Figures, diagrams, and images
 │   └── _DNN.png
 │   └── _CNN.png
 │   └── _QShield.png
 │   └── ...
+├── 📃 templates/                                                # HTML structure for QShield webapp
+│   └── index.html
+├── 🌐 app.py                                                    # Flask web app for image classification using preloaded models
+├── 🗃️ datasets.py                                               # Download datasets into local ./data folders
+├── 🌄 images.py                                                 # Save sample images from datasets into class-specific folders
 ├── 📓 Jupyter Notebook.ipynb                                    # Primary Jupyter Notebook
 ├── 📄 LICENSE                                                   # License
 ├── 🌀 noise_transforms.py                                       # Optional Noise Transforms
@@ -309,6 +378,7 @@ loss_fn = nn.NLLLoss()
 | `⚛️ pennylane` | Quantum machine learning and hybrid quantum-classical circuits |
 | `📋 tabulate` | Pretty-print tabular results (ODR, ASR, etc.) |
 | `⚙️ pip / setuptools / wheel` | Python packaging and dependency management |
+| `🌐 Flask` | Lightweight web framework for building APIs and web apps |
 
 
 
