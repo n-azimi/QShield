@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QShield Image Classification Web Application</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-2: #0b1226;
+            --card: #0b1020;
+            --muted: #94a3b8;
+            --fg: #e2e8f0;
+            --accent: #6366f1;
+            --accent-2: #22d3ee;
+            --success: #10b981;
+            --danger: #ef4444;
+            --border: rgba(148, 163, 184, 0.2);
+        }
+        * { box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--fg);
+            background: radial-gradient(1200px 800px at 10% 10%, rgba(34, 211, 238, 0.08), transparent 60%),
+                        radial-gradient(1000px 700px at 90% 30%, rgba(99, 102, 241, 0.08), transparent 60%),
+                        linear-gradient(180deg, var(--bg), var(--bg-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .container {
+            width: 100%;
+            max-width: 980px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .title {
+            margin: 0 0 8px 0;
+            font-size: 28px;
+            letter-spacing: 0.2px;
+        }
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .card {
+            background: rgba(11, 16, 32, 0.7);
+            backdrop-filter: saturate(150%) blur(8px);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .tab {
+            appearance: none;
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+        }
+        .tab[aria-selected="true"] {
+            color: var(--fg);
+            border-color: rgba(99, 102, 241, 0.6);
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.18), rgba(34, 211, 238, 0.12));
+        }
+        .section {
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .dropzone {
+            border: 2px dashed rgba(99, 102, 241, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: var(--muted);
+            transition: border-color 150ms ease, transform 150ms ease, background 150ms ease;
+            user-select: none;
+        }
+        .dropzone.is-dragover {
+            border-color: var(--accent-2);
+            background: rgba(34, 211, 238, 0.08);
+            transform: translateY(-1px);
+        }
+        .hidden-input { display: none; }
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.22), rgba(34, 211, 238, 0.18));
+            color: var(--fg);
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+        }
+        .btn.secondary {
+            background: transparent;
+        }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn:active { transform: translateY(1px); }
+        .preview-wrap {
+            display: grid;
+            grid-template-columns: 100%;
+            gap: 10px;
+        }
+        .preview {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .preview img { width: 100%; height: 100%; object-fit: contain; background: #0b132b; }
+        .canvas-wrap {
+            display: grid;
+            justify-items: start;
+            gap: 8px;
+        }
+        canvas {
+            width: 280px;
+            height: 280px;
+            background: #000000;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            touch-action: none;
+        }
+        .side {
+            border-left: 1px solid var(--border);
+            padding-left: 14px;
+        }
+        @media (max-width: 900px) { .side { border-left: none; padding-left: 0; } }
+        .status {
+            margin-top: 10px;
+            min-height: 28px;
+            color: var(--muted);
+        }
+        .result {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            background: linear-gradient(180deg, rgba(16, 185, 129, 0.18), rgba(16, 185, 129, 0.08));
+            color: #d1fae5;
+            font-weight: 600;
+        }
+        .spinner {
+            width: 16px; height: 16px; border-radius: 50%;
+            border: 2px solid rgba(148,163,184,0.35);
+            border-top-color: var(--accent);
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hint { color: var(--muted); font-size: 12px; margin-top: 6px; }
+        .kbd { border: 1px solid var(--border); border-bottom-width: 2px; padding: 0 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        a.link { color: var(--accent-2); text-decoration: none; }
+        a.link:hover { text-decoration: underline; }
+    </style>
+    <meta name="description" content="Upload an image or draw a digit (0-9) and let the model predict it.">
+</head>
+<body>
+    <div class="container">
+        <div class="header" role="banner">
+            <h1 class="title">QShield Image Classification Web Application</h1>
+            <!-- <p class="subtitle">Upload an image or draw a digit (0-9) and get an instant prediction.</p> -->
+        </div>
+        <div class="card" role="main">
+            <div class="grid">
+                <section aria-labelledby="input-section-title" class="section">
+                    <h2 id="input-section-title" class="sr-only">Input method</h2>
+                    <div class="tabs" role="tablist" aria-label="Input method">
+                        <button id="tab-upload" role="tab" class="tab" aria-selected="true" aria-controls="panel-upload">Upload</button>
+                        <button id="tab-draw" role="tab" class="tab" aria-selected="false" aria-controls="panel-draw">Draw</button>
+                    </div>
+
+                    <div id="panel-upload" role="tabpanel" aria-labelledby="tab-upload">
+                        <div id="dropzone" class="dropzone" tabindex="0" aria-label="File drop area">
+                            <div style="font-weight:600; color:#cbd5e1;">Drag & drop an image here</div>
+                            <div class="hint">or click to choose a file</div>
+                            <input id="file-input" class="hidden-input" type="file" accept="image/*" aria-label="Choose image file" />
+                        </div>
+                        <div class="actions">
+                            <button id="btn-choose" class="btn secondary" type="button">Choose Image</button>
+                            <button id="btn-clear-upload" class="btn secondary" type="button">Clear</button>
+                            <button id="btn-predict-upload" class="btn" type="button">Predict</button>
+                        </div>
+                    </div>
+
+                    <div id="panel-draw" role="tabpanel" aria-labelledby="tab-draw" hidden>
+                        <div class="canvas-wrap">
+                            <canvas id="canvas" width="280" height="280" aria-label="Drawing canvas"></canvas>
+                            <div class="actions">
+                                <button id="btn-clear-canvas" class="btn secondary" type="button">Clear</button>
+                                <button id="btn-predict-canvas" class="btn" type="button">Predict</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="side">
+                    <div class="settings-wrap">
+                        <div style="font-weight:600; color:#cbd5e1; margin-bottom: 8px;">Dataset</div>
+                        <div class="radio-group" style="margin-bottom: 12px;">
+                            <input type="radio" id="dataset-mnist" name="dataset" value="mnist" checked>
+                            <label for="dataset-mnist">MNIST</label>
+                            <input type="radio" id="dataset-organmnist" name="dataset" value="organmnist">
+                            <label for="dataset-organmnist">OrganMNIST</label>
+                            <input type="radio" id="dataset-cifar10" name="dataset" value="cifar10">
+                            <label for="dataset-cifar10">CIFAR-10</label>
+                        </div>
+
+                        <div style="font-weight:600; color:#cbd5e1; margin-bottom: 8px;">Model</div>
+                        <div class="radio-group">
+                            <input type="radio" id="model-dnn" name="model_type" value="dnn" checked>
+                            <label for="model-dnn">DNN</label>
+                            <input type="radio" id="model-cnn" name="model_type" value="cnn">
+                            <label for="model-cnn">CNN</label>
+                            <input type="radio" id="model-qnn" name="model_type" value="qnn">
+                            <label for="model-qnn">HQCNN</label>
+                        </div>
+                    </div>
+
+                    <div class="preview-wrap" style="margin-top: 16px;">
+                        <div style="font-weight:600; color:#cbd5e1;">Preview</div>
+                        <div id="preview" class="preview" aria-live="polite" aria-atomic="true">
+                            <img id="preview-img" alt="Preview image" src="" hidden />
+                        </div>
+                        <div id="status" class="status" aria-live="polite"></div>
+                        <div id="result" class="status"></div>
+                        <div class="hint">Images are resized to fit the models. No data is stored.</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <p class="subtitle" style="text-align:center; margin-top: 10px;">
+        Need a sample? Try any of the dataset-specific images in the project's <code>img</code> directory.
+        </p>
+
+    </div>
+
+    <script>
+        // Tabs
+        const tabUpload = document.getElementById('tab-upload');
+        const tabDraw = document.getElementById('tab-draw');
+        const panelUpload = document.getElementById('panel-upload');
+        const panelDraw = document.getElementById('panel-draw');
+
+        function selectTab(which) {
+            const isUpload = which === 'upload';
+            tabUpload.setAttribute('aria-selected', String(isUpload));
+            tabDraw.setAttribute('aria-selected', String(!isUpload));
+            panelUpload.hidden = !isUpload;
+            panelDraw.hidden = isUpload;
+        }
+        tabUpload.addEventListener('click', () => selectTab('upload'));
+        tabDraw.addEventListener('click', () => selectTab('draw'));
+
+        // Elements
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('file-input');
+        const btnChoose = document.getElementById('btn-choose');
+        const btnClearUpload = document.getElementById('btn-clear-upload');
+        const btnPredictUpload = document.getElementById('btn-predict-upload');
+        const btnPredictCanvas = document.getElementById('btn-predict-canvas');
+        const btnClearCanvas = document.getElementById('btn-clear-canvas');
+        const previewImg = document.getElementById('preview-img');
+        const statusEl = document.getElementById('status');
+        const resultEl = document.getElementById('result');
+
+        // Canvas drawing
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 18;
+
+        let drawing = false;
+        let lastX = 0, lastY = 0;
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const isTouch = e.touches && e.touches[0];
+            const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+            return { x: clientX - rect.left, y: clientY - rect.top };
+        }
+        function startDraw(e) { drawing = true; const p = getPos(e); lastX = p.x; lastY = p.y; e.preventDefault(); }
+        function endDraw() { drawing = false; }
+        function draw(e) {
+            if (!drawing) return;
+            const p = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(p.x, p.y);
+            ctx.stroke();
+            lastX = p.x; lastY = p.y;
+            e.preventDefault();
+            updatePreviewFromCanvas();
+        }
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', draw);
+        window.addEventListener('mouseup', endDraw);
+        canvas.addEventListener('touchstart', startDraw, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', endDraw);
+
+        // Drag & drop
+        function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evt => {
+            dropzone.addEventListener(evt, preventDefaults);
+        });
+        dropzone.addEventListener('dragenter', () => dropzone.classList.add('is-dragover'));
+        dropzone.addEventListener('dragover', () => dropzone.classList.add('is-dragover'));
+        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('is-dragover'));
+        dropzone.addEventListener('drop', (e) => {
+            dropzone.classList.remove('is-dragover');
+            const files = e.dataTransfer.files;
+            if (files && files[0]) handleFile(files[0]);
+        });
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+
+        // File input
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (file) handleFile(file);
+        });
+        btnChoose.addEventListener('click', () => fileInput.click());
+        btnClearUpload.addEventListener('click', clearUpload);
+
+        let currentBlob = null;
+        let objectUrl = null;
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                setStatus('Please select an image file.', true);
+                return;
+            }
+            clearPreview();
+            currentBlob = file;
+            objectUrl = URL.createObjectURL(file);
+            previewImg.src = objectUrl;
+            previewImg.hidden = false;
+            setStatus('Ready to predict.');
+        }
+        function clearPreview() {
+            if (objectUrl) {
+                URL.revokeObjectURL(objectUrl);
+                objectUrl = null;
+            }
+            previewImg.src = '';
+            previewImg.hidden = true;
+            resultEl.innerHTML = '';
+        }
+        function clearUpload() {
+            currentBlob = null;
+            fileInput.value = '';
+            clearPreview();
+            setStatus('Upload cleared.');
+        }
+
+        // Preview from canvas
+        function updatePreviewFromCanvas() {
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                currentBlob = blob;
+                if (objectUrl) URL.revokeObjectURL(objectUrl);
+                objectUrl = URL.createObjectURL(blob);
+                previewImg.src = objectUrl;
+                previewImg.hidden = false;
+            }, 'image/png');
+        }
+        btnClearCanvas.addEventListener('click', () => {
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#ffffff';
+            clearPreview();
+            setStatus('Canvas cleared.');
+            currentBlob = null;
+        });
+
+        // Prediction flow
+        btnPredictUpload.addEventListener('click', () => predict('upload'));
+        btnPredictCanvas.addEventListener('click', () => predict('canvas'));
+
+        async function predict(source) {
+            resultEl.innerHTML = '';
+            if (source === 'upload' && !currentBlob) {
+                setStatus('Please choose an image first.', true);
+                return;
+            }
+            if (source === 'canvas' && !currentBlob) {
+                // Ensure latest canvas content is captured
+                await new Promise((resolve) => canvas.toBlob((b) => { currentBlob = b; resolve(); }));
+            }
+            if (!currentBlob) {
+                setStatus('Nothing to predict yet.', true);
+                return;
+            }
+
+            setLoading(true);
+            try {
+                const form = new FormData();
+                // Name as file.png so the backend sees a filename
+                const fileName = source === 'canvas' ? 'canvas.png' : (fileInput.files[0]?.name || 'upload.png');
+                form.append('file', currentBlob, fileName);
+
+                const dataset = document.querySelector('input[name="dataset"]:checked').value;
+                const model_type = document.querySelector('input[name="model_type"]:checked').value;
+                form.append('dataset', dataset);
+                form.append('model_type', model_type);
+
+                const response = await fetch('/predict', { method: 'POST', body: form });
+                const isOk = response.ok;
+                const data = await response.json().catch(() => ({ error: 'Invalid server response' }));
+                if (!isOk) throw new Error(data?.error || 'Prediction failed');
+
+                const pred = data?.prediction;
+                if (typeof pred === 'number' || typeof pred === 'string') {
+                    // resultEl.innerHTML = `<span class="result" title="Model prediction"><span class="spinner" style="border-top-color:#10b981"></span> Prediction: <strong style="font-size:18px">${pred}</strong></span>`;
+                    resultEl.innerHTML = `<span class="result" title="Model prediction">Prediction: <strong style="font-size:18px">${pred}</strong></span>`;
+                    setStatus('Prediction complete.');
+                } else {
+                    throw new Error('No prediction received');
+                }
+            } catch (err) {
+                setStatus(String(err.message || err), true);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        function setStatus(text, isError = false) {
+            statusEl.textContent = text || '';
+            statusEl.style.color = isError ? '#fca5a5' : 'var(--muted)';
+        }
+        function setLoading(isLoading) {
+            btnPredictUpload.disabled = isLoading;
+            btnPredictCanvas.disabled = isLoading;
+            btnChoose.disabled = isLoading;
+            btnClearUpload.disabled = isLoading;
+            btnClearCanvas.disabled = isLoading;
+            statusEl.innerHTML = isLoading ? '<span class="spinner" aria-hidden="true"></span> Predicting…' : statusEl.textContent;
+        }
+
+        // Initialize default preview as blank canvas snapshot for better UX
+        updatePreviewFromCanvas();
+        setStatus('Ready. Select Upload or Draw to begin.');
+    </script>
+</body>
+</html>
