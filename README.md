@@ -272,14 +272,18 @@ loss_fn = nn.NLLLoss()
 ```bash
 # Download all required datasets
 python datasets.py
+```
 
+```bash
 # Launch the Flask web application
 python app.py
-
+```
+```bash
 # (Optional) Generate additional clean sample images
 #    → Edit N_PER_CLASS in images.py, then run:
 python images.py
-
+```
+```bash
 # (Optional) Generate adversarial examples
 #    → Open images_adversarial.py and set:
 #       ADVERSARIAL_ATTACK_NAME = 'onepixel_attack'   # Options: fgsm_attack, pgd_attack, apgd_attack, vmifgsm_attack,
