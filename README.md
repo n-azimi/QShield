@@ -155,12 +155,12 @@ qshield\Scripts\activate
 # If using Conda:
 conda activate qshield
 ```
-```
+```bash
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-```
+```bash
 # Download datasets
 python datasets.py
 
@@ -180,6 +180,7 @@ This section lists the key options and parameters you can configure before train
 global device
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 ```
+
 
 ##### Model & Dataset Settings
 
@@ -265,9 +266,10 @@ loss_fn = nn.NLLLoss()
 ```
 
 
+
 ## 🌐 Flask Web Application
 
-```
+```bash
 # Download all datasets
 python datasets.py
 
@@ -278,8 +280,6 @@ python app.py
 # Change N_PER_CLASS in images.py, then run:
 python images.py
 ```
-
-
 
 
 <p align="center">
@@ -296,9 +296,10 @@ python images.py
   <img src="/img/app/8.png" width="200" style="margin: 10px;">
 </p>
 
+
 You can select different pretrained HQCNN models by editing the .pt file paths in the LOAD ALL MODELS section of the app.py:
 
-```
+```python
 # ==========================================================================================
 # LOAD ALL MODELS
 # ==========================================================================================
@@ -326,7 +327,7 @@ models_dict = {
 
 ## 🗂️ Code Structure
 
-```
+```bash
 📁 QShield/
 ├── 🧠 clean_models/                                             # Models
 │   └── clean_model-<dataset>-<model_type>.pt
@@ -390,7 +391,7 @@ models_dict = {
 
 The paper associated with this work is available at **[this link](https://arxiv.org/abs/XXXX.XXXXX)**.
 
-If this repository’s code, data, or results contribute to your research, please acknowledge our work by citing the following paper:
+If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
 ```
 @INPROCEEDINGS{CitationKey,
@@ -408,9 +409,4 @@ If this repository’s code, data, or results contribute to your research, pleas
 ## 📜 License
 
 This software is licensed under the GNU General Public License v3.0 (GPLv3). You are free to use, modify, and distribute this software for both personal and commercial purposes, as long as you comply with the terms of the GPLv3 license. This includes preserving the license notice and making the source code of any derivative works available under the same license.
-
-
-
-
-
 
