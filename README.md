@@ -408,7 +408,10 @@ models_dict = {
 
 ## 📑 Citation
 
-The paper associated with this work is available at **[this link](https://arxiv.org/abs/2604.10933)**.
+The paper associated with this work is available at the links below:
+
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Paper-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.10933-b31b1b.svg)](https://arxiv.org/abs/2604.10933)
 
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
