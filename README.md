@@ -1,7 +1,7 @@
 # QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://arxiv.org/abs/XXXX.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.10933-b31b1b.svg)](https://arxiv.org/abs/2604.10933)
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
 [![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](#)
@@ -407,18 +407,19 @@ models_dict = {
 
 ## 📑 Citation
 
-The paper associated with this work is available at **[this link](https://arxiv.org/abs/XXXX.XXXXX)**.
+The paper associated with this work is available at **[this link](https://arxiv.org/abs/2604.10933)**.
 
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
 ```
-@INPROCEEDINGS{CitationKey,
-  author    = {},
-  title     = {},
-  booktitle = {},
-  year      = {},
-  pages     = {},
-  doi       = {}
+@misc{azimi2026qshieldsecuringneuralnetworks,
+      title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits}, 
+      author={Navid Azimi and Aditya Prakash and Yao Wang and Li Xiong},
+      year={2026},
+      eprint={2604.10933},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2604.10933}, 
 }
 ```
 
