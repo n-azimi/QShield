@@ -1,6 +1,7 @@
 # QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits
 
 
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Paper-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933)
 [![arXiv](https://img.shields.io/badge/arXiv-2604.10933-b31b1b.svg)](https://arxiv.org/abs/2604.10933)
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
 [![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
@@ -407,19 +408,21 @@ models_dict = {
 
 ## 📑 Citation
 
-The paper associated with this work is available at **[this link](https://arxiv.org/abs/2604.10933)**.
+The paper associated with this work is available at the links below:
+
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Paper-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.10933-b31b1b.svg)](https://arxiv.org/abs/2604.10933)
 
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Cite-34A853?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933#d=gs_cit&t=1776339950469&u=%2Fscholar%3Fq%3Dinfo%3AdCyx-C3p71cJ%3Ascholar.google.com%2F%26output%3Dcite%26scirp%3D0%26hl%3Den)
+
 ```
-@misc{azimi2026qshieldsecuringneuralnetworks,
-      title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits}, 
-      author={Navid Azimi and Aditya Prakash and Yao Wang and Li Xiong},
-      year={2026},
-      eprint={2604.10933},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2604.10933}, 
+@article{azimi2026qshield,
+  title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits},
+  author={Azimi, Navid and Prakash, Aditya and Wang, Yao and Xiong, Li},
+  journal={arXiv preprint arXiv:2604.10933},
+  year={2026}
 }
 ```
 
