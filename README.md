@@ -415,9 +415,7 @@ The paper associated with this work is available at the links below:
 
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
-[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Cite-34A853?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933#d=gs_cit&t=1776338338420&u=%2Fscholar%3Fq%3Dinfo%3AdCyx-C3p71cJ%3Ascholar.google.com%2F%26output%3Dcite%26scirp%3D0%26hl%3Den)
-
-[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Cite-34A853?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933#d=gs_cit&t=1776339638380&u=%2Fscholar%3Fq%3Dinfo%3AdCyx-C3p71cJ%3Ascholar.google.com%2F%26output%3Dcite%26scirp%3D0%26hl%3Den)
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Cite-34A853?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933#d=gs_cit&t=1776339950469&u=%2Fscholar%3Fq%3Dinfo%3AdCyx-C3p71cJ%3Ascholar.google.com%2F%26output%3Dcite%26scirp%3D0%26hl%3Den)
 
 ```
 @article{azimi2026qshield,
