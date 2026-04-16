@@ -415,6 +415,8 @@ The paper associated with this work is available at the links below:
 
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Cite-34A853?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933#d=gs_cit)
+
 ```
 @article{azimi2026qshield,
   title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits},
