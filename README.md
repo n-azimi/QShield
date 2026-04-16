@@ -416,14 +416,11 @@ The paper associated with this work is available at the links below:
 If this repository or the paper has contributed to your research, please acknowledge our work by citing it:
 
 ```
-@misc{azimi2026qshieldsecuringneuralnetworks,
-      title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits}, 
-      author={Navid Azimi and Aditya Prakash and Yao Wang and Li Xiong},
-      year={2026},
-      eprint={2604.10933},
-      archivePrefix={arXiv},
-      primaryClass={cs.CR},
-      url={https://arxiv.org/abs/2604.10933}, 
+@article{azimi2026qshield,
+  title={QShield: Securing Neural Networks Against Adversarial Attacks using Quantum Circuits},
+  author={Azimi, Navid and Prakash, Aditya and Wang, Yao and Xiong, Li},
+  journal={arXiv preprint arXiv:2604.10933},
+  year={2026}
 }
 ```
 
