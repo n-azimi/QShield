@@ -3,12 +3,12 @@
 
 [![Google Scholar](https://img.shields.io/badge/Google%20Scholar-Paper-4285F4?logo=googlescholar&logoColor=white)](https://scholar.google.com/scholar_lookup?arxiv_id=2604.10933)
 [![arXiv](https://img.shields.io/badge/arXiv-2604.10933-b31b1b.svg)](https://arxiv.org/abs/2604.10933)
-[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
-[![Python Version](https://img.shields.io/badge/Python-3.12-blue.svg)](#)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](#)
 [![PyTorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](#)
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?logo=jupyter&logoColor=white)](#)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20MacOS%20%7C%20Windows-lightgrey.svg)](#)
 [![No Maintenance Intended](https://img.shields.io/badge/Status-Maintained-green.svg)](#)
+[![Machine Brief](https://img.shields.io/badge/Machine%20Brief-Media%20Coverage-2a9d8f?logo=readme&logoColor=white)](https://www.machinebrief.com/news/quantum-meets-classical-a-new-shield-against-adversarial-att-nw4y)
 
 
 
