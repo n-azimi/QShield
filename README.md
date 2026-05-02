@@ -8,7 +8,8 @@
 [![Jupyter Notebook](https://img.shields.io/badge/Jupyter%20Notebook-F37626?logo=jupyter&logoColor=white)](#)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20MacOS%20%7C%20Windows-lightgrey.svg)](#)
 [![No Maintenance Intended](https://img.shields.io/badge/Status-Maintained-green.svg)](#)
-[![Media Coverage](https://img.shields.io/badge/Media%20Coverage-Machine%20Brief-2a9d8f?logo=google-news&logoColor=white)](https://www.machinebrief.com/news/quantum-meets-classical-a-new-shield-against-adversarial-att-nw4y)
+[![Media Coverage - Machine Brief](https://img.shields.io/badge/Media%20Coverage-Machine%20Brief-2a9d8f?logo=google-news&logoColor=white)](https://www.machinebrief.com/news/quantum-meets-classical-a-new-shield-against-adversarial-att-nw4y)
+[![Media Coverage - Quantum Zeitgeist](https://img.shields.io/badge/Media%20Coverage-Quantum%20Zeitgeist-2a9d8f?logo=google-news&logoColor=white)](https://quantumzeitgeist.com/quantum-circuits-adversarial-defence/)
 
 
 ## 📚 Table of Contents
